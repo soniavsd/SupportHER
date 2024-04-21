@@ -1,9 +1,65 @@
 ---
-title: "Projects"
+title: "Policy Effects"
 ---
 
-## Project 1
+# How has the Global Gag Rule impacted NGOs?
 
-## Project 2
+```{r, echo=FALSE}
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+```
 
-## Project 3
+```{r, echo=FALSE}
+dataold <-read.csv("Global Abortion Incidence Dataset.csv")
+```
+
+```{r, echo=FALSE}
+data <- dataold %>%
+  filter (country=="South Africa") %>%
+  rename(Year= yearend)  %>%
+  rename(`Number of Abortions`=numberofabortions) 
+
+```
+
+```{r, echo=FALSE}
+data <- mutate(data, `Global Gag Rule`=ifelse(Year==1997 | Year== 1998 | Year== 2009 | Year== 1993 | Year== 1994 | Year== 1995 | Year== 1996 | Year== 2014 | Year== 2010 | Year== 2011 | Year== 2012 | Year== 2013, "Yes","No"))
+```
+
+-   Within organizations that chose to be compliant to the policy, a crucial part of reproductive health care is lost to many communities, and especially those in lower income areas.
+
+-   Within organizations that chose to forgo US funds and continue abortion services, an important financial assistance was lost and studies have shown this to cause a major decline in contraceptive resources offered by those NGOs.
+
+-   Furthermore, even in times of inactivity, data from South Africa shows that there is no change to the number of abortions per year potentially due to worry that the policy will either likely be brought back in a few years, or NGOs are confused of the status and details of the policy.
+
+```{r, echo=FALSE}
+ggplot(data, aes(x=`Global Gag Rule`, y=Year)) + 
+   geom_bar(stat="identity", color="darkgreen",fill="darkgreen")+
+ labs(title = "Abortions in South Africa by GGR Active Status", x= "Global Gag Rule Status", y="Number of Abortions")
+
+
+datasum <- data %>%
+  group_by(`Global Gag Rule`) %>%
+  summarise(
+    Mean = mean(`Number of Abortions`),
+    'Standard Deviation'= sd(`Number of Abortions`),
+    "P value" = 0.3621
+  )
+
+
+datasum %>%
+  kbl(caption="Assessing Number of Abortions in South Africa by GGR Active Status") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
+
+
+
+```
+
+-   Other studies find that active policy years increase the number of abortions compared to non active years, making the purpose of the policy unsuccessful
+
+```{r, echo=FALSE}
+ggplot(data, aes(x=Year, y=`Number of Abortions`)) + 
+   geom_line()+
+ labs(title = "Abortions in South Africa throughout the Years", x= "Year", y="Number of Abortions")
+```

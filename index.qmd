@@ -1,19 +1,21 @@
 ---
-title: "About Me"
-about:
-  id: me
-  template: broadside
-  image: img/profile.png
+title: "What is the Global Gag Rule"
 ---
 
-:::{#me}
+![https://fosfeminista.org/media/get-to-know-the-ggr/](introphto.jpeg)
 
-## Goals
+<div>
 
-## Education
+<div>
 
-## Experience
+-   The U.S. plays a large role in global health and has committed to numerous international human rights efforts including attempting to achieve all  sustainable development goals, with one of them being to end preventable child and maternal deaths by 2035 (2)
 
-:::
+-    However, some of US' policy and impact can harm the human rights and public health of other countries, making achieving these goals seem contradictory.
 
-Thanks for checking out my web site!
+-   The mexico city policy, also known as the global gag rule, is a us policy first introduced in the reagan administration in 1984 and requires any foreign NGO that receives us funds to not provide or promote abortion or abortion services
+
+-   This law is currently inactive as it was rescinded by the biden administration in 2021, but the law can be reimposed and rescinded by executive order, making it possible to be reactivated and even expanded in the future, just like it was expanded in the trump administration
+
+</div>
+
+</div>
